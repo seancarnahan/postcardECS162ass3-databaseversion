@@ -1,0 +1,570 @@
+/* styles */
+
+/* size of margin, border and padding is included in size of element
+   in internal CSS calculations */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  /* font stack */
+  font-family: Verbana, sans-serif;
+
+  display: flex;
+  flex-direction: column;
+
+  min-height: 100vh;
+}
+
+header {
+  flex-grow: 0;
+
+}
+
+.headerTitle {
+  font-family: 'Dancing Script', cursive;
+  font-size: 35px;
+  margin-top: 30px;
+
+
+
+}
+@media (max-width: 600px) {
+  .headerTitle {
+    margin-left: 10vw;
+    margin-bottom: 30px;
+
+
+  }
+}
+
+
+@media (min-width: 601px) {
+  .headerTitle {
+    margin-left: 5vw;
+
+  }
+}
+
+
+main {
+  width: 90%;
+  margin: 0 auto;
+
+  flex-grow: 1;
+
+  /* flex container commands */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+@media (min-width: 600px) {
+  main {
+
+  }
+}
+
+
+
+img#serverImage {
+  display: none;
+  width: 100%;
+  height: 100%;
+}
+
+div#controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 25px;
+
+}
+
+input#fileChooser {
+  display: none;
+}
+
+label {
+  color: black;
+}
+
+footer {
+  flex-grow: 0;
+
+  /* flex container commands */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  margin: 1em 0;
+}
+
+/*----------------- START OF MY CODE -----------------------------*/
+
+/*---------- postcardToDisplay --------- */
+#postcardToDisplay {
+  background-color: #e6e2cf;
+
+  border-radius: 25px;
+  max-width: 700px;
+  padding-top: 3vh;
+}
+
+
+
+@media (min-width: 601px) {
+  #postcardToDisplay {
+    width: 100%;
+    height: 55vh;
+
+    display: flex;
+    flex-direction: row;
+
+
+  }
+}
+
+
+
+
+
+@media (min-width: 601px) {
+  #imageAndReplaceWrap {
+    width: 45%;
+    height: 90%;
+    margin-left: 25px;
+    margin-top:20px;
+    margin-right: 14px;
+
+    position: relative;
+
+  }
+}
+
+
+@media (min-width: 601px) {
+  #imageSelectorWrapper {
+    border-style: dashed;
+    border-width: 1.25px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 85%;
+  }
+}
+
+@media (min-width: 601px) {
+  #replaceImageContainer {
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10px;
+
+    position: absolute;
+    bottom: 0;
+    left: 20%;
+  }
+}
+
+@media (min-width: 601px) {
+  #replaceImageBox {
+
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+
+    border-width: thin;
+    border-style: solid;
+    padding: 15px;
+    width: 26vw;
+
+    max-width: 180px;
+
+  }
+}
+
+input#replaceFileChooser {
+  display: none;
+}
+
+
+/* ----------- VERTICAL VS HORIZONTAL IMAGES --------  */
+@media (max-width: 600px) {
+  .tallImg {
+
+  }
+}
+
+@media (min-width: 601px) {
+  .tallImg {
+    height: 85%;
+  }
+}
+
+@media (max-width: 600px) {
+  .wideImg {
+
+  }
+}
+
+@media (min-width: 601px) {
+  .wideImg {
+    height: 60%;
+  }
+}
+
+
+
+/* ----------MOBILE VIEWPORT FROM IMAGES ------- */
+@media (max-width: 600px) {
+  #postcardToDisplay {
+    width: 100%;
+    height: 70vh;
+
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+@media (max-width: 600px) {
+  #imageAndReplaceWrap {
+    width: 85%;
+    height: 45%;
+
+    position: relative;
+
+
+  }
+
+}
+
+@media (max-width: 600px) {
+  #imageSelectorWrapper {
+    border-style: dashed;
+    border-width: 1.25px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    height: 100%;
+  }
+
+}
+
+@media (max-width: 600px) {
+  #replaceImageContainer {
+
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+
+    bottom: 0;
+    left: 22vw;
+
+    position: absolute;
+  }
+}
+
+@media (max-width: 600px) {
+  #replaceImageBox {
+
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 18px;
+
+    border-width: thin;
+    border-style: solid;
+    padding: 10px;
+    width: 47vw;
+
+    max-width: 180px;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+.messageBox {
+
+  padding-top: 3vh;
+
+  font-family: 'Indie Flower';
+}
+
+
+@media (max-width: 600px) {
+  .messageBox {
+    height: 55%;
+    width: 80%;
+
+  }
+}
+
+
+@media (min-width: 601px) {
+  .messageBox {
+    width: 45%;
+    height: 95%;
+
+    border-style: solid;
+    border-left: black solid 2px;
+    padding-left: 15px;
+
+  }
+}
+
+
+#writtenMessage {
+  width: 100%;
+  height: 95%;
+  font-family: 'Indie Flower';
+  font-size: 18px;
+
+  background-color: #e6e2cf;
+  border-width: 0px;
+
+  top: 0%;
+
+}
+
+
+
+
+
+
+
+
+/*---------- customizeWrapper --------- */
+
+
+
+@media (max-width: 600px) {
+  .customizeWrapper {
+    width: 100%;
+    padding-top: 5vh;
+  }
+}
+
+@media (min-width: 601px) {
+  .customizeWrapper {
+    width: 100%;
+    max-width: 700px;
+    padding-top: 5vh;
+
+    display: flex;
+    flex-direction: row;
+
+    margin-bottom: 5vh;
+  }
+}
+
+
+
+
+
+
+
+/* FONTS */
+
+@media (min-width: 601px) {
+  .fontSelectorBox {
+    flex: 12;
+  }
+}
+
+@media (min-width: 601px) {
+  .fontsBoxHeader {
+    padding-bottom: 0;
+  }
+}
+
+
+.fontsBoxHeader {
+  padding-bottom: 7px;
+}
+
+
+.font {
+  margin-top: 1vh;
+  cursor: pointer;
+}
+
+#fontOne{
+  font-family: 'Indie Flower';
+}
+
+#fontTwo{
+  font-family: 'Dancing Script';
+}
+
+#fontThree{
+  font-family: 'Long Cang';
+}
+
+#fontFour{
+  font-family: 'Homemade Apple';
+}
+
+
+/*------ON-----*/
+ .fontOneOn:before {
+  content: "\2756";
+}
+
+.fontTwoOn:before {
+  content: "\2756";
+}
+
+.fontThreeOn:before {
+  content: "\2756";
+}
+
+.fontFourOn:before {
+  content: "\2756";
+}
+
+
+/*------OFF-----*/
+ .fontOneOff:before {
+  content: "\20DF";
+}
+
+.fontTwoOff:before {
+  content: "\20DF";
+}
+
+.fontThreeOff:before {
+  content: "\20DF";
+}
+
+.fontFourOff:before {
+  content: "\20DF";
+}
+
+
+
+
+
+/* COLORS */
+.colorSelectorBox {
+  padding-top: 2vh;
+}
+
+@media (min-width: 601px) {
+  .colorSelectorBox {
+    flex: 15;
+
+    padding-top: 0px;
+  }
+}
+
+
+.colorsBoxHeader {
+  padding-bottom: 10px;
+}
+
+.colorsBox {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.color {
+  width: 35px;
+  height: 35px;
+  margin: 5px;
+}
+
+#colorOne {
+  background-color: #e6e2cf;
+}
+
+#colorTwo {
+  background-color: #dbcaac;
+}
+
+#colorThree {
+  background-color: #c9cbb3;
+}
+
+#colorFour {
+  background-color: #bbc9ca;
+}
+
+#colorFive {
+  background-color: #a6a5b5;
+}
+
+#colorSix {
+  background-color: #b5a6ab;
+}
+
+#colorSeven {
+  background-color: #eccfcf;
+}
+
+#colorEight {
+  background-color: #eceeeb;
+}
+
+#colorNine {
+  background-color: #bab9b5;
+}
+
+/*SHARE POSTCARD*/
+
+
+#sharePostcardBox {
+  margin-top: 20px;
+  border-width: 1px;
+  border-style: solid;
+  width: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 108.516px;
+}
+
+
+.sharePostcardMessage {
+  padding: 10px;
+  font-size: 16px;
+}
+
+@media (min-width: 601px) {
+  #sharePostcardBox {
+    flex: 11;
+    margin-top: 0px;
+
+    margin: 10px;
+    height: 45px;
+}
+
+/* ------ REPLACE IMAGE ----- */

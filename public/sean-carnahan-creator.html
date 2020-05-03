@@ -1,0 +1,87 @@
+<!-- This is a static file -->
+<!-- served from your routes in server.js -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Show me!</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="./reset.css">
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Dancing+Script|Homemade+Apple|Indie+Flower|Long+Cang&display=swap">
+  </head>
+  <body>
+    <header>
+      <h1 class="headerTitle">
+         Daily Postcard Creator
+      </h1>
+    </header>
+    <main>
+      <div id="postcardToDisplay">
+
+
+        <div id="imageAndReplaceWrap">
+          <div id="imageSelectorWrapper" class="changeWidth">
+            <img src="" alt="" id="serverImage"/>
+            <div id="controls">
+              <label id="imgLabel" for="fileChooser">Choose Image</label>
+              <input type="file" id="fileChooser" accept="image/png, .jpeg, .jpg, image/gif"></input>
+            </div>
+          </div>
+          <div id="replaceImageContainer">
+            <div id="replaceImageBox">
+              <label for="replaceFileChooser">Replace Image</label>
+              <input type="file" class="replaceImageMessage" id="replaceFileChooser" accept="image/png, .jpeg, .jpg, image/gif"></input>
+            </div>
+          </div>
+        </div>
+
+
+
+        <div id="message" class="messageBox">
+          <textarea id="writtenMessage" placeholder="Write your message here!"></textarea>
+        </div>
+      </div>
+      <div class="customizeWrapper">
+        <div class="fontSelectorBox">
+          <div class="fontsBoxHeader">
+            <h1>Choose your font</h1>
+          </div>
+          <div class="fontsBox">
+            <div id="fontOne" class="font">Indie Flower</div>
+            <div id="fontTwo" class="font">Dancing Script</div>
+            <div id="fontThree" class="font">Long Cang</div>
+            <div id="fontFour" class="font">Homemade Apple</div>
+          </div>
+        </div>
+        <div class="colorSelectorBox">
+          <div class="colorsBoxHeader">
+            <h1>Choose your color</h1>
+          </div>
+          <div class="colorsBox">
+            <div id="colorOne" class="color"></div>
+            <div id="colorTwo" class="color"></div>
+            <div id="colorThree" class="color"></div>
+            <div id="colorFour" class="color"></div>
+            <div id="colorFive" class="color"></div>
+            <div id="colorSix" class="color"></div>
+            <div id="colorSeven" class="color"></div>
+            <div id="colorEight" class="color"></div>
+            <div id="colorNine" class="color"></div>
+          </div>
+        </div>
+        <div id="sharePostcardBox" style="margin-top: 30px;">
+          <div class="sharePostcardMessage">Share postcard</div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      <div class="msg">
+         Made on Glitch!
+      </div>
+    <script src="./script.js"></script>
+    </footer>
+  </body>
+</html>
