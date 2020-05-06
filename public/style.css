@@ -565,6 +565,79 @@ input#replaceFileChooser {
 
     margin: 10px;
     height: 45px;
+  }
 }
 
-/* ------ REPLACE IMAGE ----- */
+
+
+
+
+/* ------ OVERLAY STYLING ASSIGNMENT 3 CSS BELOW ----- */
+#overlay {
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 2;
+  cursor: pointer;
+
+}
+
+#exitOverlay {
+  color: white;
+  position: absolute;
+  right: 0;
+  font-size: 60px;
+  padding: 50px;
+}
+
+
+
+#sharePostcardOverlay {
+  margin: auto;
+  width: 90%;
+
+  padding: 10px;
+
+  display: flex;
+  justify-content: center;
+
+  height: 40vh;
+  max-width: 850px;
+
+  background-color: white;
+  border-radius: 25px;
+
+  font-weight: bold;
+
+
+
+  flex-direction: column;
+  align-items: center;
+
+  padding-bottom: 150px;
+
+
+}
+
+#sharePostcardOverlay-title {
+  font-size: 45px;
+}
+
+@media (max-width: 600px) {
+  #sharePostcardOverlay-title {
+    font-size: 6vw;
+  }
+}
+
+#linkToShare {
+  padding-top: 30px;
+  font-size: 22px;
+
+  cursor: pointer;
+}

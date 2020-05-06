@@ -7,17 +7,21 @@ let serverImage = document.getElementById('serverImage');
 
 function start() {
   getPostcardData((callbackData) => {
-    console.log("---ENTERED CALLBACK---");
-    console.log(callbackData);
+    console.log("RESPONSE RECIEVED: " + callbackData);
 
-    writtenMessage.style.fontFamily = callbackData.font;
+    writtenMessage.style.fontFamily = callbackData[0].font;
 
-    postcardToDisplay.style.backgroundColor = callbackData.color;
-    writtenMessage.style.backgroundColor = callbackData.color;
+    postcardToDisplay.style.backgroundColor = callbackData[0].color;
+    writtenMessage.style.backgroundColor = callbackData[0].color;
 
-    writtenMessage.value = callbackData.message;
+    writtenMessage.value = callbackData[0].message;
 
-    serverImage.src = './../images/' + callbackData.photo;
+    serverImage.src = './../images/' + callbackData[0].photo;
+
+    let randomString = callbackData[0].randomStr;
+    console.log("Random String: " + randomString);
+
+
   });
 }
 
@@ -35,7 +39,16 @@ function getPostcardData (callback) {
   }
 
   //type, url/file, async
-  xhr.open("GET",'http://localhost:5000/getJsonData', true);
+  //the query oarams have to be sent here
+
+  let randomString = window.location.search.split('=')[1]
+  console.log(randomString);
+
+
+
+
+  xhr.open("GET",'http://localhost:5000/getJsonData?id='+randomString, true);
+
 
   xhr.send();
 }

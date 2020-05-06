@@ -53,6 +53,15 @@ let colorChoices = ["#e6e2cf", "#dbcaac", "#c9cbb3", "#bbc9ca", "#a6a5b5", "#b5a
 
 let imgSize;
 
+
+//POPUP VARIABLES
+let overlay = document.getElementById("overlay");
+let exitOverlay = document.getElementById("exitOverlay");
+let sharePostcardOverlay = document.getElementById("sharePostcardOverlay");
+let sharePostcardOverlayTitle = document.getElementById("sharePostcardOverlay-title");
+let linkToShare = document.getElementById("linkToShare");
+
+
 function start(){
   //fonts
   indieFlower.classList.add("fontOneOn");
@@ -64,7 +73,16 @@ function start(){
   allColors[0].style.borderStyle = "solid";
   allColors[0].style.borderWidth = "thin";
 
+
+  let popupStatus = false;
+  overlay.style.display = "none";
+
+
 }
+
+
+
+
 
 img.addEventListener("load", e => {
   imgLabel.textContent = "Uploading...";
@@ -476,10 +494,11 @@ sharePostcardBox.addEventListener("click", () => {
   let data = JSON.stringify(sharePostCardData);
 
   //write ajax request
-  loadSharePostCardData(data);
+  let randomString = loadSharePostCardData(data);
+  console.log("Check: " + randomString);
 
   //display new html file
-  displayNewUrl();
+  //displayNewUrl(randomString);
 
 
 });
@@ -491,28 +510,55 @@ function loadSharePostCardData(data) {
   xhr.open("POST",'http://localhost:5000/send', true);
   xhr.setRequestHeader('Content-Type', 'application/json;charset=UTF-8');
 
-  // xhr.onloadend = (e) => {
-  //   window.location = 'http://localhost:5000/display';
-  // }
+  xhr.onloadend = function(e) {
+    console.log("randomly assigned ID returning back to the browser");
+    console.log(xhr.responseText);
+    //return xhr.responseText;
+    displayNewUrl(xhr.responseText);
+
+  }
 
   xhr.send(data);
-  console.log("SENT DATA!");
 }
 
-function displayNewUrl() {
+
+function displayNewUrl(randomString) {
   const xhr = new XMLHttpRequest();
 
   //type, url/file, async
   xhr.open("GET",'http://localhost:5000/', true);
   xhr.responseType = "document";
+
   xhr.send();
 
-  //change url
-  changeURL();
+  //change url -> dont need anymore now that we have popup
+  //changeURL(randomString);
+
+  //display POPUP
+  displayPopup(randomString);
 }
 
-function changeURL() {
-  window.location = 'http://localhost:5000/display';
+function displayPopup(randomString) {
+  popupStatus = true;
+
+  overlay.style.display = "flex";
+
+  linkToShare.textContent = 'http://localhost:5000/display.html?id='+randomString;
+  linkToShare.href = 'http://localhost:5000/display.html?id='+randomString;
+
+}
+
+exitOverlay.addEventListener("click", () => {
+  popupStatus = true;
+  overlay.style.display = "none";
+
+});
+
+
+
+function changeURL(randomString) {
+  console.log("randomString: "+ randomString);
+  window.location = 'http://localhost:5000/display.html?id='+randomString;
   //window.location.href = 'sean-carnahan-display.html';
 }
 
@@ -543,46 +589,3 @@ function uploadImage(fileToUpload) {
 
 
 start();
-
-
-
-
-
-
-
-
-
-
-
-
-// UPLOAD IMAGE using a post request
-// Called by the event listener that is waiting for a file to be chosen
-// function uploadFile() {
-//
-//     // get the file chosen by the file dialog control
-//     const selectedFile = document.getElementById('fileChooser').files[0];
-//     // store it in a FormData object
-//     const formData = new FormData();
-//     // name of field, the file itself, and its name
-//     formData.append('newImage',selectedFile, selectedFile.name);
-//
-//     // build a browser-style HTTP request data structure
-//     const xhr = new XMLHttpRequest();
-//     // it will be a POST request, the URL will this page's URL+"/upload"
-//     xhr.open("POST", "/upload", true);
-//
-//     // callback function executed when the HTTP response comes back
-//     xhr.onloadend = function(e) {
-//         // Get the server's response body
-//         console.log(xhr.responseText);
-//         // now that the image is on the server, we can display it!
-//         let newImage = document.getElementById("serverImage");
-//         newImage.src = "https://image-upload-example.glitch.me/images/"+selectedFile.name;
-//     }
-//
-//     // actually send the request
-//     xhr.send(formData);
-// }
-//
-// // Add event listener to the file input element
-// document.getElementById("fileChooser").addEventListener("change",uploadFile);
